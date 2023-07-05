@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pranathi's Portfolio</title>
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000; /* Black */
+      color: #fff;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    /* Header styles */
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      display: inline-block;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Main content styles */
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    /* Home section styles */
+    .banner {
+      position: relative;
+      text-align: center;
+    }
+
+    .links {
+      margin-top: 20px;
+    }
+
+    .links a {
+      margin-right: 10px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        width: 250px;
+        height: 250px;
+        border: 2px solid orange; /* Add the border style */
+        box-shadow: 0 0 5px rgba(255, 165, 0, 0.5); /* Add a subtle shadow effect */
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item .label {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    /* About section styles */
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+    .about-content img {
+        width: 275px;
+        height: 275px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
+      }
+    .about-content img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Skills section styles */
+    .skills-content {
+      display: flex;
+      justify-content: space-between;
+    }
+    .about-content h2 {
+        opacity: 0;
+        animation: fade-in 1s forwards;
+    }
+    .about-content p {
+        opacity: 0;
+        animation: fade-in 1s forwards;
+        animation-delay: 0.5s;
+    }
+    @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+  
+      /* Add a new class to hide sections */
+      .hidden {
+        display: none;
+      }
+  
+
+    .skill {
+      width: 45%;
+    }
+
+    .skill h3 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .skill ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .skill ul li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .skill-name {
+      display: inline-block;
+      width: 100px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .skill-bar {
+      width: 150px;
+      height: 10px;
+      background-color: #ddd;
+    }
+
+    .skill-level {
+      height: 100%;
+      background-color: #f90;
+      animation: fillBar 1s ease;
+    }
+
+    .skill-percentage {
+      position: absolute;
+      top: -20px;
+      right: 0;
+      font-weight: bold;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    /* Contact section styles */
+    .contact-form {
+      margin-top: 20px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 300px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .contact-form textarea {
+      height: 100px;
+    }
+
+    .contact-form input[type="submit"] {
+      width: 150px;
+      padding: 10px;
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Add a new class to hide sections */
+    .hidden {
+      display: none;
+    }
+    #downloadButton {
+        display: inline-block;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      
+      #downloadButton:hover,
+      #downloadButton.active {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      @keyframes animateText {
+        0% {
+          color: orange;
+          transform: scale(1);
+        }
+        50% {
+          color: yellow;
+          transform: scale(1.2);
+        }
+        100% {
+          color: orange;
+          transform: scale(1);
+        }
+      }
+      
+      .banner h1 {
+        animation: animateText 3s infinite;
+      }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a class="active" href="#" onclick="toggleSection('home')">HOME</a></li>
+        <li><a href="#" onclick="toggleSection('about')">ABOUT</a></li>
+        <li><a href="#" onclick="toggleSection('skills')">SKILLS</a></li>
+        <li><a href="#" onclick="toggleSection('contact')">CONTACT</a></li>
+        <li><a href="#" onclick="toggleSection('my cv'); showDownloadButton()">MY CV</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="banner">
+        <h1 style="color:orange;">MY PORTFOLIO</h1>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/pranathi-kandala-50806223a"><h3 style="color:orange;"><b>View my LinkedIn Handle</b></h3></a>
+          <a href="https://www.codechef.com/users/pranathi29_k"><h3 style="color:orange;"><b>View my CodeChef Handle</b></h3></a>
+        </div>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="C:\Users\Dell\OneDrive\Documents\im1.jpg" alt="Image 1"><br>
+            <div class="label">FRONT END</div><br>
+          </div>
+          <div class="gallery-item">
+            <img src="C:\Users\Dell\OneDrive\Documents\im2.jpg" alt="Image 2"><br>
+            <div class="label">DATA ANALYSIS</div><br>
+          </div>
+          <div class="gallery-item">
+            <img src="C:\Users\Dell\OneDrive\Documents\im3.jpg" alt="Image 3"><br>
+            <div class="label">MACHINE LEARNING</div><br>
+          </div>
+          <div class="gallery-item">
+            <img src="C:\Users\Dell\OneDrive\Documents\im1.jpg" alt="Image 4"><br>
+            <div class="label">COMPETITIVE CODING</div><br>
+          </div>
+        </div>
+        <br><h1  align="center" style="color:orange;">INTRESTED FIELDS</h1><br>
+      </div>
+    </section>
+
+    <section id="about" class="hidden">
+      <h1 style="color:skyblue;">KNOW ME!</h1>
+      <div class="about-content">
+        <img src="C:\Users\Dell\OneDrive\Documents\your_picture.jpg" alt="Pranathi's Picture" style="display: block; margin: 0 auto;"><br><br>
+        <h2 style="color:skyblue;"> Student@VRSEC IT | VRSACM Secretary </h2><br>
+        <h2 style="color:skyblue;"> Front-End Developement | Python Enthusiast | Data Analysis and ML Enthusiast </h2><br>
+        <p font size="18"><b>Self-motivated and enthusiastic beginner with a passion for front-end development, Python programming, and data analysis. Strong dedication to continuous learning</p></b>
+      </div>
+    </section>
+
+    <section id="skills" class="hidden">
+      <h1 align="center" style="color:orange;">MY SKILLS AND CERTIFICATIONS</h1><br><br><br><br>
+      <div class="skills-content">
+        <div class="skill">
+          <h3 style="color:orange;">PROGRAMMING</h3><br>
+          <ul>
+            <li>
+              <span class="skill-name">HTML</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">CSS</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 80%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 75%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">Python</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">Java</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 80%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">c++</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">R and statistics</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 70%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">DSA</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 80%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h3 style="color:orange;">SOFT SKILLS</h3><br>
+          <ul>
+            <li>
+              <span class="skill-name">Self_learning</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">Strategy_making</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">Leadership</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">problem_solving </span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 80%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+            <li>
+              <span class="skill-name">Organising</span>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+              <span class="skill-percentage"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="hidden">
+      <h2>Contact</h2>
+      <div class="contact-form">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" required></textarea>
+          <input type="submit" value="Send Message">
+        </form>
+      </div>
+    </section>
+  </main>
+  <section id="my cv" class="hidden">
+    <h1 style="color:orange;">GLAD TO MEET YOU!</h2><br><br>
+    <div class="downloadbutton">
+    <br><center><a href="C:\Users\Dell\OneDrive\Documents\mycv.pdf" onclick="toggleSection('home'); showDownloadButton()"><h2 style="color:yellow;">DOWNLOAD CV</h2></a></center>
+    </div>
+  </section>
+</main>
+
+  <script>
+    function toggleSection(sectionId) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section) => {
+        if (section.id === sectionId) {
+          section.classList.remove("hidden");
+        } else {
+          section.classList.add("hidden");
+        }
+      });
+    }
+
+    function showDownloadButton() {
+        const downloadButton = document.getElementById("downloadButton");
+        downloadButton.classList.remove("hidden");
+      }
+      
+      function toggleDownloadButton() {
+        const downloadButton = document.getElementById("downloadButton");
+        downloadButton.classList.toggle("active");
+      }
+  </script>
+</body>
+
+</html>
